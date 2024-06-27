@@ -79,6 +79,16 @@ function CheckoutScreen() {
 
   const confirmHandler = async (paymentMethod: any, shouldSavePaymentMethod: any, intentCreationCallback: any) => {
     // Make a request to your own server to retrieve the client secret of the payment intent.
+    /* For testing purposes I used this command, and grab the client secret result in the clientSecret var
+
+      curl https://api.stripe.com/v1/payment_intents \                                         
+        -u "sk_test_51PVa7VHKcApJiuV2kOBNbZwAACcIo93qnDim78INA0jLkR1H47NXrGdiQpYPBt1aFQ2a57sX7kZ8v6B9bsQRJUg0004Ztg4H32:" \
+        -d amount=1099 \
+        -d currency=usd
+
+
+
+    */
 
     if (clientSecret) {
       intentCreationCallback({ clientSecret })
